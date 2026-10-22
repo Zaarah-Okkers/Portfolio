@@ -1,3 +1,4 @@
+
 <script setup>
 import { computed, ref } from 'vue'
 
@@ -182,8 +183,8 @@ const journey = [
   </header>
 
   <main>
-    <section id="home" class="home">
-    <section class="hero">
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
       <span class="deco deco-dots" aria-hidden="true"></span>
       <span class="deco deco-stripes" aria-hidden="true"></span>
       <span class="deco deco-stripes-peach" aria-hidden="true"></span>
@@ -191,15 +192,38 @@ const journey = [
       <span class="deco deco-square-dark" aria-hidden="true"></span>
 
       <div class="hero-text">
-        <p class="intro">Hello, I'm</p>
+        <p class="intro">HELLO, I'M</p>
         <h1>Zaarah Okkers</h1>
         <p class="role">Junior Web Developer</p>
         <p class="tagline">
-          I build clean, responsive websites with Vue.js, based in Cape Town.
+          I turn ideas into clean, responsive and creative digital
+          experiences using code and design.
         </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="hero-button">
+            Explore My Work <span aria-hidden="true">→</span>
+          </a>
+          <a href="#contact" class="hero-button hero-button-outline">
+            Let's Connect
+          </a>
+        </div>
+
+        <p class="hero-location">
+          <span aria-hidden="true">⌖</span> Cape Town, South Africa
+        </p>
+      </div>
+
+      <div class="hero-side-note" aria-hidden="true">
+        <span>DESIGN</span>
+        <span class="hero-side-line"></span>
+        <span>DEVELOP</span>
+        <span class="hero-side-line"></span>
+        <span>CREATE</span>
       </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="about">
       <div class="about-content">
         <div class="about-media">
@@ -212,6 +236,7 @@ const journey = [
             />
             <span class="photo-bar" aria-hidden="true"></span>
           </div>
+
           <div class="about-social">
             <a
               href="https://www.linkedin.com/in/zaarah-okkers-3688b1377/"
@@ -235,18 +260,21 @@ const journey = [
 
         <div class="about-body">
           <h2 class="about-heading"><span>About</span> Me.</h2>
+
           <div class="about-text">
             <p>
               I am a junior web developer based in Cape Town, with a strong
               interest in creativity and design. I began learning to code in
               2022 and have since built a solid foundation in web development.
             </p>
+
             <p>
               My interest in coding began with curiosity about how websites are
               built and how they function. Through my work with HTML, CSS and
               JavaScript, I have come to appreciate the possibilities of
               creating attractive and functional websites.
             </p>
+
             <p>
               Outside of coding, I enjoy reading, art and design. I believe that
               creativity is central to web development, and I aim to bring a
@@ -257,18 +285,27 @@ const journey = [
       </div>
     </section>
 
+    <!-- SKILLS SECTION -->
     <section id="skills" class="skills">
       <h2>Skills</h2>
+
       <div class="skill-grid">
-        <div v-for="group in skillGroups" :key="group.title" class="skill-card">
+        <div
+          v-for="group in skillGroups"
+          :key="group.title"
+          class="skill-card"
+        >
           <h3>{{ group.title }}</h3>
           <ul>
-            <li v-for="item in group.items" :key="item">{{ item }}</li>
+            <li v-for="item in group.items" :key="item">
+              {{ item }}
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="projects">
       <h2>Projects</h2>
 
@@ -294,9 +331,13 @@ const journey = [
         >
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
+
           <ul class="tech">
-            <li v-for="item in project.tech" :key="item">{{ item }}</li>
+            <li v-for="item in project.tech" :key="item">
+              {{ item }}
+            </li>
           </ul>
+
           <div v-if="project.link || project.github" class="project-links">
             <a
               v-if="project.link"
@@ -307,6 +348,7 @@ const journey = [
             >
               View project
             </a>
+
             <a
               v-if="project.github"
               class="project-link"
@@ -321,22 +363,33 @@ const journey = [
       </TransitionGroup>
     </section>
 
+    <!-- WHY WORK WITH ME SECTION -->
     <section id="why" class="why">
       <h2>Why Work With Me</h2>
+
       <p class="why-intro">
         A quick look at what I bring to a team, and how I got here.
       </p>
 
       <div class="strength-grid">
-        <div v-for="item in strengths" :key="item.title" class="strength-card">
+        <div
+          v-for="item in strengths"
+          :key="item.title"
+          class="strength-card"
+        >
           <h3>{{ item.title }}</h3>
           <p>{{ item.text }}</p>
         </div>
       </div>
 
       <h3 class="journey-heading">My Journey</h3>
+
       <ol class="journey">
-        <li v-for="step in journey" :key="step.title" class="journey-item">
+        <li
+          v-for="step in journey"
+          :key="step.title"
+          class="journey-item"
+        >
           <span class="journey-when">{{ step.when }}</span>
           <h4>{{ step.title }}</h4>
           <p>{{ step.text }}</p>
@@ -344,15 +397,25 @@ const journey = [
       </ol>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>I'm open to junior developer opportunities. Let's talk.</p>
+
       <div class="actions">
-        <a class="button" href="mailto:zaarahokkers7@gmail.com">Get in touch</a>
-        <a class="button button-outline" href="/Zaarah-Okkers-CV.pdf" download>
+        <a class="button" href="mailto:zaarahokkers7@gmail.com">
+          Get in touch
+        </a>
+
+        <a
+          class="button button-outline"
+          href="/Zaarah-Okkers-CV.pdf"
+          download
+        >
           Download CV
         </a>
       </div>
+
       <div class="social">
         <a
           href="https://www.linkedin.com/in/zaarah-okkers-3688b1377/"
@@ -361,6 +424,7 @@ const journey = [
         >
           LinkedIn
         </a>
+
         <a
           href="https://github.com/Zaarah-Okkers"
           target="_blank"
@@ -498,53 +562,159 @@ section {
   background: var(--olive-dark);
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero / Home ---------- */
 
 .hero {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   min-height: 100vh;
+  min-height: 100svh;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   background: var(--olive);
+  padding-top: 7rem;
+  padding-bottom: 4rem;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 68%;
+  inset: 0 auto 0 0;
+  width: 72%;
   background: var(--cream);
-  border-radius: 0 60% 30% 0 / 0 50% 40% 0;
+  border-radius: 0 55% 35% 0 / 0 45% 45% 0;
+  z-index: -1;
 }
 
 .hero-text {
   position: relative;
-  z-index: 1;
-  max-width: 560px;
+  z-index: 2;
+  width: 100%;
+  max-width: 650px;
+}
+
+.intro {
+  margin: 0 0 0.75rem;
+  color: var(--peach-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+h1 {
+  margin: 0.5rem 0 1rem;
+  color: var(--olive-dark);
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.role {
+  margin: 0;
+  color: var(--peach-dark);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+.tagline {
+  max-width: 460px;
+  margin: 1.25rem 0 0;
+  color: var(--text-soft);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0.8rem 1.4rem;
+  box-sizing: border-box;
+  border: 1px solid var(--olive);
+  background: var(--olive);
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 3px;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  background: var(--olive-dark);
+}
+
+.hero-button-outline {
+  background: transparent;
+  color: var(--olive-dark);
+}
+
+.hero-button-outline:hover {
+  background: var(--olive);
+  color: var(--cream);
+}
+
+.hero-location {
+  margin: 2rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-side-note {
+  position: absolute;
+  z-index: 2;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--cream);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  writing-mode: vertical-rl;
+}
+
+.hero-side-line {
+  width: 1px;
+  height: 35px;
+  background: var(--peach);
 }
 
 .hero .deco-dots {
-  top: 18%;
+  top: 15%;
   right: 12%;
 }
 
 .hero .deco-stripes {
-  width: 280px;
-  height: 280px;
-  right: 14%;
+  width: 240px;
+  height: 240px;
+  right: 10%;
   bottom: 8%;
 }
 
 .hero .deco-stripes-peach {
-  width: 220px;
-  height: 220px;
-  left: 14%;
-  bottom: -90px;
-  opacity: 0.9;
+  width: 180px;
+  height: 180px;
+  left: 12%;
+  bottom: -100px;
 }
 
 .hero .deco-square {
@@ -559,38 +729,6 @@ section {
   height: 42px;
   left: 0;
   bottom: 16%;
-}
-
-.intro {
-  margin: 0;
-  color: var(--text-soft);
-  font-size: 1.15rem;
-  font-weight: 500;
-}
-
-h1 {
-  margin: 0.5rem 0;
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  color: var(--olive-dark);
-}
-
-.role {
-  margin: 0;
-  color: var(--peach-dark);
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.tagline {
-  margin: 1.25rem 0 0;
-  max-width: 440px;
-  color: var(--text-soft);
-  font-size: 1.15rem;
-  line-height: 1.6;
 }
 
 /* ---------- Content sections ---------- */
@@ -1211,34 +1349,65 @@ footer p {
     padding-right: 6%;
   }
 
+  .hero {
+    min-height: 90svh;
+    padding-top: 9rem;
+    padding-bottom: 7rem;
+  }
+
   .hero::before {
     width: 100%;
-    bottom: 14%;
-    border-radius: 0 0 60% 0 / 0 0 25% 0;
+    border-radius: 0 0 45% 0 / 0 0 15% 0;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+
+  .role {
+    font-size: 1.3rem;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .hero-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-side-note {
+    display: none;
   }
 
   .hero .deco-stripes {
-    width: 150px;
-    height: 150px;
-    right: 6%;
-    bottom: 4%;
+    width: 115px;
+    height: 115px;
+    right: 5%;
+    bottom: 3%;
   }
 
   .hero .deco-stripes-peach {
-    width: 130px;
-    height: 130px;
-    left: 4%;
-    bottom: -50px;
+    width: 100px;
+    height: 100px;
+    left: 3%;
+    bottom: -45px;
   }
 
   .hero .deco-dots {
     top: 12%;
-    right: 4%;
+    right: 5%;
     width: 80px;
-  }
-
-  .role {
-    font-size: 1.2rem;
   }
 
   .about,
