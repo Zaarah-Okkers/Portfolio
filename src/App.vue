@@ -1,4 +1,6 @@
 <script setup>
+import { computed, ref } from 'vue'
+
 const skillGroups = [
   {
     title: 'Frontend',
@@ -104,6 +106,14 @@ const projects = [
     github: 'https://github.com/Zaarah-Okkers/Python-Mini-Toolkit'
   }
 ]
+
+const filters = ['All', 'Vue.js', 'HTML', 'CSS', 'Python']
+const activeFilter = ref('All')
+
+const visibleProjects = computed(() => {
+  if (activeFilter.value === 'All') return projects
+  return projects.filter((project) => project.tech.includes(activeFilter.value))
+})
 
 const strengths = [
   {
@@ -259,8 +269,27 @@ const journey = [
 
     <section id="projects" class="projects">
       <h2>Projects</h2>
-      <div class="project-grid">
-        <article v-for="project in projects" :key="project.title" class="project">
+
+      <div class="filter-bar" role="group" aria-label="Filter projects">
+        <button
+          v-for="filter in filters"
+          :key="filter"
+          type="button"
+          class="filter-button"
+          :class="{ active: activeFilter === filter }"
+          :aria-pressed="activeFilter === filter"
+          @click="activeFilter = filter"
+        >
+          {{ filter }}
+        </button>
+      </div>
+
+      <TransitionGroup name="project" tag="div" class="project-grid">
+        <article
+          v-for="project in visibleProjects"
+          :key="project.title"
+          class="project"
+        >
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
           <ul class="tech">
@@ -287,7 +316,7 @@ const journey = [
             </a>
           </div>
         </article>
-      </div>
+      </TransitionGroup>
     </section>
 
     <section id="why" class="why">
@@ -374,7 +403,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--peach-dark);
   outline-offset: 3px;
 }
@@ -799,6 +829,38 @@ h2 {
 
 /* ---------- Projects ---------- */
 
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: -0.5rem 0 2rem;
+}
+
+.filter-button {
+  padding: 0.5rem 1.2rem;
+  background: transparent;
+  color: var(--olive-dark);
+  border: 1px solid var(--olive);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-button:hover {
+  border-color: var(--peach-dark);
+  color: var(--peach-dark);
+}
+
+.filter-button.active {
+  background: var(--olive);
+  color: var(--cream);
+  border-color: var(--olive);
+}
+
 .project-grid {
   counter-reset: project;
   display: grid;
@@ -818,6 +880,17 @@ h2 {
 
 .project:hover {
   transform: translateY(-4px);
+}
+
+.project-enter-active,
+.project-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-enter-from,
+.project-leave-to {
+  opacity: 0;
+  transform: scale(0.96);
 }
 
 .project::before {
