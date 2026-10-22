@@ -182,6 +182,7 @@ const journey = [
   </header>
 
   <main>
+    <section id="home" class="home">
     <section class="hero">
       <span class="deco deco-dots" aria-hidden="true"></span>
       <span class="deco deco-stripes" aria-hidden="true"></span>
