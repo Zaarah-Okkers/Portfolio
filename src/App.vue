@@ -85,14 +85,23 @@ const projects = [
     title: 'CampusSwap SA',
     description:
       'A student marketplace platform built as a group project. I built the Academic Marketplace page.',
-    tech: ['Vue.js', 'Vue Router', 'Vuex']
+    tech: ['Vue.js', 'Vue Router', 'Vuex'],
+    link: 'https://campusswap-fontend.onrender.com'
   },
   {
     title: 'HTML & CSS Showcase',
     description:
       'A website that shows my HTML and CSS skills through clean layouts and thoughtful design.',
-    tech: ['HTML', 'CSS'],
-    link: 'https://html-css-showcase.onrender.com/'
+    tech: ['HTML', 'CSS', 'Vue.js'],
+    link: 'https://html-css-showcase.onrender.com/',
+    github: 'https://github.com/Zaarah-Okkers/HTML-CSS-Showcase'
+  },
+  {
+    title: 'Python Mini Toolkit',
+    description:
+      'A beginner-friendly, menu-based Python program with a Study Planner and a Daily Motivation Generator.',
+    tech: ['Python'],
+    github: 'https://github.com/Zaarah-Okkers/Python-Mini-Toolkit'
   }
 ]
 </script>
@@ -168,15 +177,26 @@ const projects = [
           <ul class="tech">
             <li v-for="item in project.tech" :key="item">{{ item }}</li>
           </ul>
-          <a
-            v-if="project.link"
-            class="project-link"
-            :href="project.link"
-            target="_blank"
-            rel="noopener"
-          >
-            View project
-          </a>
+          <div v-if="project.link || project.github" class="project-links">
+            <a
+              v-if="project.link"
+              class="project-link"
+              :href="project.link"
+              target="_blank"
+              rel="noopener"
+            >
+              View project
+            </a>
+            <a
+              v-if="project.github"
+              class="project-link"
+              :href="project.github"
+              target="_blank"
+              rel="noopener"
+            >
+              View code
+            </a>
+          </div>
         </article>
       </div>
     </section>
@@ -621,9 +641,14 @@ h2 {
   color: #e3c9b6;
 }
 
-.project-link {
-  display: inline-block;
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
   margin-top: 1.25rem;
+}
+
+.project-link {
   color: var(--cream);
   font-size: 0.95rem;
   font-weight: 600;
