@@ -104,6 +104,58 @@ const projects = [
     github: 'https://github.com/Zaarah-Okkers/Python-Mini-Toolkit'
   }
 ]
+
+const strengths = [
+  {
+    title: 'I learn fast',
+    text: 'I went from my first HTML pages in 2022 to building Vue.js applications, and I keep adding new tools to my toolkit.'
+  },
+  {
+    title: 'I work well in a team',
+    text: 'I contributed to the CampusSwap SA group project, where I owned the Academic Marketplace page, and I collaborated in group sessions during my technology programme.'
+  },
+  {
+    title: 'I am reliable',
+    text: 'I completed a structured programme from February to September 2025 and deliver my work live, so you can see it running.'
+  },
+  {
+    title: 'I care about design',
+    text: 'I pay attention to how a site looks as well as how it works, with clean layouts, consistent colour and responsive pages.'
+  }
+]
+
+const journey = [
+  {
+    when: '2022',
+    title: 'Started learning to code',
+    text: 'I began with HTML, CSS and JavaScript, driven by curiosity about how websites are built.'
+  },
+  {
+    when: 'Dec 2024',
+    title: 'Job shadowing at The Gemini Solution',
+    text: 'I observed developers writing, testing and reviewing code, and gained exposure to real software workflows.'
+  },
+  {
+    when: '2025',
+    title: 'Gender Rights in Technology programme',
+    text: 'I built research, communication and presentation skills, and learned about digital safety and responsible technology use.'
+  },
+  {
+    when: '2025',
+    title: 'National Senior Certificate',
+    text: 'I completed Grade 12, including Computer Applications Technology.'
+  },
+  {
+    when: 'Feb 2026',
+    title: 'Built my first website from scratch',
+    text: 'I applied HTML and problem-solving skills to design and structure my own pages.'
+  },
+  {
+    when: 'Now',
+    title: 'Building with Vue.js',
+    text: 'I am working on full-stack projects, including the CampusSwap SA team project and this portfolio.'
+  }
+]
 </script>
 
 <template>
@@ -113,6 +165,7 @@ const projects = [
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#why">Why Me</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -136,24 +189,60 @@ const projects = [
     </section>
 
     <section id="about" class="about">
-      <h2>About</h2>
-      <p>
-        Hi, and welcome to my portfolio! I'm Zaarah, a beginner web developer
-        with a passion for creativity and design. I started learning coding in
-        2022, and since then, I've been on an exciting journey of discovery and
-        growth in the world of web development.
-      </p>
-      <p>
-        My passion for coding began with a simple curiosity about how websites
-        are built and how they work. As I delved deeper into HTML, CSS, and
-        JavaScript, I found myself captivated by the endless possibilities of
-        creating beautiful and functional websites.
-      </p>
-      <p>
-        Outside of coding, I have a love for reading, art, and design. I
-        believe creativity is a huge part of web development, and I aim to
-        bring a unique and artistic touch to every project I create.
-      </p>
+      <div class="about-content">
+        <div class="about-media">
+          <div class="photo-frame">
+            <span class="photo-tag" aria-hidden="true">&lt;/&gt;</span>
+            <img
+              class="about-photo"
+              src="/9e1adbde-3d5a-e986-35cb-a8939642a81e.jpg"
+              alt="Portrait of Zaarah Okkers"
+            />
+            <span class="photo-bar" aria-hidden="true"></span>
+          </div>
+          <div class="about-social">
+            <a
+              href="https://www.linkedin.com/in/zaarah-okkers-3688b1377/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              in
+            </a>
+            <a
+              href="https://github.com/Zaarah-Okkers"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              GH
+            </a>
+            <a href="mailto:zaarahokkers7@gmail.com" aria-label="Email">@</a>
+          </div>
+        </div>
+
+        <div class="about-body">
+          <h2 class="about-heading"><span>About</span> Me.</h2>
+          <div class="about-text">
+            <p>
+              I am a junior web developer based in Cape Town, with a strong
+              interest in creativity and design. I began learning to code in
+              2022 and have since built a solid foundation in web development.
+            </p>
+            <p>
+              My interest in coding began with curiosity about how websites are
+              built and how they function. Through my work with HTML, CSS and
+              JavaScript, I have come to appreciate the possibilities of
+              creating attractive and functional websites.
+            </p>
+            <p>
+              Outside of coding, I enjoy reading, art and design. I believe that
+              creativity is central to web development, and I aim to bring a
+              considered, artistic approach to every project I undertake.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="skills" class="skills">
@@ -201,6 +290,29 @@ const projects = [
       </div>
     </section>
 
+    <section id="why" class="why">
+      <h2>Why Work With Me</h2>
+      <p class="why-intro">
+        A quick look at what I bring to a team, and how I got here.
+      </p>
+
+      <div class="strength-grid">
+        <div v-for="item in strengths" :key="item.title" class="strength-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </div>
+      </div>
+
+      <h3 class="journey-heading">My Journey</h3>
+      <ol class="journey">
+        <li v-for="step in journey" :key="step.title" class="journey-item">
+          <span class="journey-when">{{ step.when }}</span>
+          <h4>{{ step.title }}</h4>
+          <p>{{ step.text }}</p>
+        </li>
+      </ol>
+    </section>
+
     <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>I'm open to junior developer opportunities. Let's talk.</p>
@@ -235,7 +347,7 @@ const projects = [
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700&display=swap');
 
 :root {
   --cream: #e8e3cf;
@@ -454,6 +566,7 @@ h1 {
 .about,
 .skills,
 .projects,
+.why,
 .contact {
   position: relative;
   overflow: hidden;
@@ -464,12 +577,14 @@ h1 {
 .about > *,
 .skills > *,
 .projects > *,
+.why > *,
 .contact > * {
   position: relative;
   z-index: 1;
 }
 
-.skills {
+.skills,
+.why {
   background: var(--cream-dark);
 }
 
@@ -514,15 +629,124 @@ h2 {
   color: var(--olive-dark);
 }
 
-.about p {
-  max-width: 760px;
+/* ---------- About ---------- */
+
+.about-content {
+  display: flow-root;
+  max-width: 1000px;
   margin: 0 auto;
-  color: var(--text-soft);
-  font-size: 1.1rem;
-  line-height: 1.75;
 }
 
-.about p + p {
+.about-media {
+  float: left;
+  width: 260px;
+  margin: 0 3.5rem 1.5rem 1.25rem;
+}
+
+.photo-frame {
+  position: relative;
+  padding: 0.75rem;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(74, 72, 60, 0.2);
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+}
+
+.photo-tag {
+  position: absolute;
+  top: 1.5rem;
+  left: -1.25rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  background: var(--cream);
+  color: var(--olive-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(74, 72, 60, 0.2);
+}
+
+.photo-bar {
+  position: absolute;
+  right: -0.75rem;
+  bottom: 2.5rem;
+  width: 0.9rem;
+  height: 3.2rem;
+  background: var(--peach-dark);
+}
+
+.about-social {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+}
+
+.about-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  background: var(--olive);
+  color: var(--cream);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.about-social a:hover {
+  background: var(--peach-dark);
+}
+
+.about-heading {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  text-align: left;
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+}
+
+.about-heading span {
+  position: relative;
+}
+
+.about-heading span::before {
+  content: '';
+  position: absolute;
+  top: -0.2em;
+  right: -0.4em;
+  z-index: -1;
+  width: 55%;
+  height: 1.1em;
+  background: var(--peach);
+  opacity: 0.6;
+}
+
+.about-text p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-text p + p {
   margin-top: 1.25rem;
 }
 
@@ -659,6 +883,121 @@ h2 {
   color: #e3c9b6;
 }
 
+/* ---------- Why work with me ---------- */
+
+.why-intro {
+  max-width: 620px;
+  margin: -0.5rem auto 2.5rem;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.strength-card {
+  padding: 1.5rem;
+  background: var(--cream);
+  border-top: 4px solid var(--peach);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(74, 72, 60, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.strength-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(74, 72, 60, 0.15);
+}
+
+.strength-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--olive-dark);
+}
+
+.strength-card p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.journey-heading {
+  margin: 4rem 0 2rem;
+  text-align: center;
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+}
+
+.journey {
+  list-style: none;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 0 0 2rem;
+  border-left: 3px solid var(--peach);
+}
+
+.journey-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.journey-item:last-child {
+  padding-bottom: 0;
+}
+
+.journey-item::before {
+  content: '';
+  position: absolute;
+  top: 0.35rem;
+  left: -2.7rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  background: var(--olive);
+  border: 3px solid var(--cream-dark);
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+.journey-when {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  padding: 0.15rem 0.6rem;
+  background: var(--peach);
+  color: var(--olive-dark);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.journey-item h4 {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--olive-dark);
+}
+
+.journey-item p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
 /* ---------- Contact ---------- */
 
 .contact {
@@ -781,13 +1120,15 @@ footer p {
   }
 
   .nav nav {
-    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
   }
 
   section {
     padding-left: 6%;
     padding-right: 6%;
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 7rem;
   }
 
   footer {
@@ -828,13 +1169,28 @@ footer p {
   .about,
   .skills,
   .projects,
+  .why,
   .contact {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
   }
 
+  .about-media {
+    float: none;
+    max-width: 260px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .photo-tag {
+    left: -0.5rem;
+  }
+
   .project {
     padding-left: 4.5rem;
+  }
+
+  .journey-heading {
+    margin-top: 3rem;
   }
 }
 </style>
