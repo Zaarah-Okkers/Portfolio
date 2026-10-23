@@ -172,6 +172,7 @@ const journey = [
   <header class="nav">
     <span class="logo">Zaarah Okkers</span>
     <nav>
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -181,7 +182,7 @@ const journey = [
   </header>
 
   <main>
-    <section class="hero">
+    <section id="home" class="hero">
       <span class="deco deco-dots" aria-hidden="true"></span>
       <span class="deco deco-stripes" aria-hidden="true"></span>
       <span class="deco deco-stripes-peach" aria-hidden="true"></span>
