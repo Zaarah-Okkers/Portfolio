@@ -104,6 +104,51 @@ const projects = [
       'A beginner-friendly, menu-based Python program with a Study Planner and a Daily Motivation Generator.',
     tech: ['Python'],
     github: 'https://github.com/Zaarah-Okkers/Python-Mini-Toolkit'
+  },
+  {
+    // TODO: check the tech tags for this project
+    title: 'HR Flow',
+    description:
+      'An HR and payroll web app with a sign-in page, payroll management and employee performance tracking.',
+    tech: ['HTML', 'CSS'],
+    link: 'https://hrflow-xg3y.onrender.com'
+  },
+  {
+    // TODO: rename this project, rewrite the description and check the tech tags
+    title: 'Project A (rename me)',
+    description:
+      'A web application with a live demo and the full source code available on GitHub.',
+    tech: ['Vue.js'],
+    link: 'https://lnkd.in/dHsmYmsR',
+    github: 'https://lnkd.in/dFFHf6Yd'
+  },
+  {
+    // TODO: rename this project, rewrite the description and check the tech tags
+    title: 'Project B (rename me)',
+    description:
+      'A designed and built website, with the design process documented in Figma and the code on GitHub.',
+    tech: ['HTML', 'CSS'],
+    link: 'https://lnkd.in/dXM6X-5z',
+    github: 'https://lnkd.in/dT94Hp86',
+    figma: 'https://lnkd.in/dzXVyEEm'
+  },
+  {
+    // TODO: rename this project, rewrite the description and check the tech tags
+    title: 'Project C (rename me)',
+    description:
+      'A live website with the full source code available on GitHub.',
+    tech: ['HTML', 'CSS'],
+    link: 'https://lnkd.in/dHxjDRkE',
+    github: 'https://lnkd.in/dny7UKsc'
+  },
+  {
+    // TODO: this link had no label, so check where it goes. Then rename the project,
+    // rewrite the description, check the tech tags and change this to link or github
+    title: 'Project D (rename me)',
+    description:
+      'Another project from my learning journey. Follow the link to see it in action.',
+    tech: ['HTML', 'CSS'],
+    link: 'https://lnkd.in/g4KaVvgc'
   }
 ]
 
@@ -114,6 +159,34 @@ const visibleProjects = computed(() => {
   if (activeFilter.value === 'All') return projects
   return projects.filter((project) => project.tech.includes(activeFilter.value))
 })
+
+const certificates = [
+  {
+    title: 'YouthCode Software Development Project',
+    issuer: 'Life Choices Academy',
+    date: '2 October 2026',
+    text: 'Awarded for completing the YouthCode software development programme, covering the fundamentals of ICT through to front-end, back-end and e-commerce development.',
+    modules: [
+      'Introduction to ICT',
+      'Front-End Development',
+      'Database and Back-End Development',
+      'E-commerce',
+      'Personal and Professional Development'
+    ]
+  },
+  {
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco Networking Academy',
+    date: '1 September 2026',
+    text: 'A verified student-level credential covering online safety, common cyber threats and attacks, and how individuals and organisations protect themselves.',
+    modules: [
+      'Online Safety',
+      'Cyber Threats & Attacks',
+      'Protecting Organisations',
+      'Cybersecurity Careers'
+    ]
+  }
+]
 
 const strengths = [
   {
@@ -176,6 +249,7 @@ const journey = [
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
       <a href="#why">Why Me</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -296,7 +370,10 @@ const journey = [
           <ul class="tech">
             <li v-for="item in project.tech" :key="item">{{ item }}</li>
           </ul>
-          <div v-if="project.link || project.github" class="project-links">
+          <div
+            v-if="project.link || project.github || project.figma"
+            class="project-links"
+          >
             <a
               v-if="project.link"
               class="project-link"
@@ -315,9 +392,41 @@ const journey = [
             >
               View code
             </a>
+            <a
+              v-if="project.figma"
+              class="project-link"
+              :href="project.figma"
+              target="_blank"
+              rel="noopener"
+            >
+              View design
+            </a>
           </div>
         </article>
       </TransitionGroup>
+    </section>
+
+    <section id="certificates" class="certificates">
+      <h2>Certificates</h2>
+      <p class="section-intro">
+        Qualifications and credentials I have earned along the way.
+      </p>
+
+      <div class="certificate-grid">
+        <article
+          v-for="certificate in certificates"
+          :key="certificate.title"
+          class="certificate-card"
+        >
+          <span class="certificate-date">{{ certificate.date }}</span>
+          <h3>{{ certificate.title }}</h3>
+          <p class="certificate-issuer">{{ certificate.issuer }}</p>
+          <p class="certificate-text">{{ certificate.text }}</p>
+          <ul class="certificate-tags">
+            <li v-for="item in certificate.modules" :key="item">{{ item }}</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section id="why" class="why">
@@ -597,6 +706,7 @@ h1 {
 .about,
 .skills,
 .projects,
+.certificates,
 .why,
 .contact {
   position: relative;
@@ -608,6 +718,7 @@ h1 {
 .about > *,
 .skills > *,
 .projects > *,
+.certificates > *,
 .why > *,
 .contact > * {
   position: relative;
@@ -615,7 +726,7 @@ h1 {
 }
 
 .skills,
-.why {
+.certificates {
   background: var(--cream-dark);
 }
 
@@ -957,6 +1068,91 @@ h2 {
   color: #e3c9b6;
 }
 
+/* ---------- Certificates ---------- */
+
+.section-intro {
+  max-width: 620px;
+  margin: -0.5rem auto 2.5rem;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.certificate-card {
+  padding: 1.75rem;
+  background: var(--cream);
+  border-top: 4px solid var(--peach);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(74, 72, 60, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(74, 72, 60, 0.15);
+}
+
+.certificate-date {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.15rem 0.6rem;
+  background: var(--peach);
+  color: var(--olive-dark);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.certificate-card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--olive-dark);
+}
+
+.certificate-issuer {
+  margin: 0 0 0.9rem;
+  color: var(--peach-dark);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.certificate-text {
+  margin: 0 0 1.1rem;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.certificate-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.certificate-tags li {
+  padding: 0.3rem 0.7rem;
+  background: var(--olive);
+  color: var(--cream);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 /* ---------- Why work with me ---------- */
 
 .why-intro {
@@ -978,7 +1174,7 @@ h2 {
 
 .strength-card {
   padding: 1.5rem;
-  background: var(--cream);
+  background: var(--cream-dark);
   border-top: 4px solid var(--peach);
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(74, 72, 60, 0.1);
@@ -1040,7 +1236,7 @@ h2 {
   width: 0.85rem;
   height: 0.85rem;
   background: var(--olive);
-  border: 3px solid var(--cream-dark);
+  border: 3px solid var(--cream);
   border-radius: 50%;
   box-sizing: content-box;
 }
@@ -1243,6 +1439,7 @@ footer p {
   .about,
   .skills,
   .projects,
+  .certificates,
   .why,
   .contact {
     padding-top: 3.5rem;
