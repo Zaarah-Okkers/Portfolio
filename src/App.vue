@@ -115,9 +115,9 @@ const projects = [
   },
   {
     // TODO: rename this project, rewrite the description and check the tech tags
-    title: 'Project A (rename me)',
+    title: 'Flask web-scrapping',
     description:
-      'A web application with a live demo and the full source code available on GitHub.',
+      'Market Pulse monitors prices across two markets: retail goods and digital assets. It scrapes live data, stores it, and displays it through a single-page dashboard with search, filters, watchlist, top movers, and export capabilities. The application is designed to be extendable to other markets such as forex, commodities, or any other data source that can be scraped or accessed via API.',
     tech: ['Vue.js'],
     link: 'https://lnkd.in/dHsmYmsR',
     github: 'https://lnkd.in/dFFHf6Yd'
@@ -134,22 +134,13 @@ const projects = [
   },
   {
     // TODO: rename this project, rewrite the description and check the tech tags
-    title: 'Project C (rename me)',
+    title: 'YouthConnect',
     description:
-      'A live website with the full source code available on GitHub.',
+      'YouthConnect is a youth-focused web platform designed to connect young people with opportunities, resources, events, and career growth tools in one accessible space. The project aims to create a supportive digital community where users can explore internships, workshops, jobs, learning resources, and networking opportunities.',
     tech: ['HTML', 'CSS'],
     link: 'https://lnkd.in/dHxjDRkE',
     github: 'https://lnkd.in/dny7UKsc'
   },
-  {
-    // TODO: this link had no label, so check where it goes. Then rename the project,
-    // rewrite the description, check the tech tags and change this to link or github
-    title: 'Project D (rename me)',
-    description:
-      'Another project from my learning journey. Follow the link to see it in action.',
-    tech: ['HTML', 'CSS'],
-    link: 'https://lnkd.in/g4KaVvgc'
-  }
 ]
 
 const filters = ['All', 'Vue.js', 'HTML', 'CSS', 'Python']
