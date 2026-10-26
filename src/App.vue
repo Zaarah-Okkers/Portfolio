@@ -106,7 +106,6 @@ const projects = [
     github: 'https://github.com/Zaarah-Okkers/Python-Mini-Toolkit'
   },
   {
-    // TODO: check the tech tags for this project
     title: 'HR Flow',
     description:
       'An HR and payroll web app with a sign-in page, payroll management and employee performance tracking.',
@@ -114,7 +113,6 @@ const projects = [
     link: 'https://hrflow-xg3y.onrender.com'
   },
   {
-    // TODO: rename this project, rewrite the description and check the tech tags
     title: 'Flask web-scrapping',
     description:
       'Market Pulse monitors prices across two markets: retail goods and digital assets. It scrapes live data, stores it, and displays it through a single-page dashboard with search, filters, watchlist, top movers, and export capabilities. The application is designed to be extendable to other markets such as forex, commodities, or any other data source that can be scraped or accessed via API.',
@@ -123,23 +121,13 @@ const projects = [
     github: 'https://lnkd.in/dFFHf6Yd'
   },
   {
-    // TODO: rename this project, rewrite the description and check the tech tags
-    title: 'Project B (rename me)',
-    description:
-      'A designed and built website, with the design process documented in Figma and the code on GitHub.',
-    tech: ['HTML', 'CSS'],
-    link: 'https://lnkd.in/dXM6X-5z',
-    github: 'https://lnkd.in/dT94Hp86',
-    figma: 'https://lnkd.in/dzXVyEEm'
-  },
-  {
-    // TODO: rename this project, rewrite the description and check the tech tags
     title: 'YouthConnect',
     description:
       'YouthConnect is a youth-focused web platform designed to connect young people with opportunities, resources, events, and career growth tools in one accessible space. The project aims to create a supportive digital community where users can explore internships, workshops, jobs, learning resources, and networking opportunities.',
     tech: ['HTML', 'CSS'],
-    link: 'https://lnkd.in/dHxjDRkE',
-    github: 'https://lnkd.in/dny7UKsc'
+     link: 'https://lnkd.in/dXM6X-5z',
+    github: 'https://lnkd.in/dT94Hp86',
+    figma: 'https://lnkd.in/dzXVyEEm'
   },
 ]
 
